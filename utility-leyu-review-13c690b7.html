@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.2">
+  <title>日常查询·对照·延伸阅读 | leyu</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f4f8fb;
+      color: #1e2c3a;
+      line-height: 1.65;
+      padding: 2rem 1rem 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .grid-container {
+      max-width: 920px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    /* 卡片通用样式 */
+    .card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.75rem 1.8rem;
+      box-shadow: 0 6px 18px rgba(0, 30, 40, 0.05), 0 2px 4px rgba(0, 50, 60, 0.02);
+      transition: box-shadow 0.2s ease, transform 0.15s ease;
+      border: 1px solid rgba(185, 210, 220, 0.25);
+    }
+
+    .card:hover {
+      box-shadow: 0 12px 28px rgba(30, 120, 130, 0.08), 0 4px 8px rgba(0, 30, 40, 0.04);
+      transform: translateY(-2px);
+    }
+
+    /* 蓝绿点缀色 */
+    .accent-border {
+      border-left: 5px solid #1daaa0;
+      padding-left: 1.2rem;
+    }
+
+    .accent-light {
+      background: #e8f5f0;
+      color: #0c5d55;
+    }
+
+    .accent-link {
+      color: #15847c;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .accent-link:hover {
+      border-bottom-color: #1daaa0;
+      color: #0b5f58;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #daeee9;
+      color: #116b62;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.25rem 0.8rem;
+      border-radius: 40px;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+
+    /* hero */
+    .hero {
+      background: #ffffff;
+      border-radius: 32px;
+      padding: 2.2rem 2rem;
+      border: 1px solid rgba(30, 130, 120, 0.12);
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 2.1rem;
+      font-weight: 540;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      color: #0a2e2b;
+    }
+
+    .hero .subhead {
+      font-size: 1rem;
+      color: #3e5a5a;
+      margin-top: 0.5rem;
+      max-width: 70%;
+    }
+
+    .hero .meta-note {
+      margin-top: 1.2rem;
+      font-size: 0.9rem;
+      color: #4a6a6a;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .meta-note span {
+      background: #dff0ed;
+      padding: 0.15rem 0.7rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+
+    /* 网格卡片布局（两列自适应） */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin: 0.8rem 0;
+    }
+
+    .card-grid .card {
+      padding: 1.2rem 1.3rem;
+    }
+
+    .card-grid h3 {
+      font-size: 1rem;
+      font-weight: 530;
+      margin-bottom: 0.4rem;
+      color: #0a3532;
+    }
+
+    .card-grid p {
+      font-size: 0.9rem;
+      color: #2b4747;
+    }
+
+    /* 正文段落 */
+    .article p {
+      margin-bottom: 1.1rem;
+      font-size: 1rem;
+    }
+
+    .article p:last-child {
+      margin-bottom: 0;
+    }
+
+    .quote-block {
+      background: #e2f0ec;
+      border-radius: 18px;
+      padding: 1rem 1.5rem;
+      margin: 1.2rem 0;
+      border-left: 5px solid #1daaa0;
+    }
+
+    .quote-block p {
+      margin-bottom: 0;
+      font-style: normal;
+      color: #1b4f49;
+    }
+
+    .quote-block .source {
+      margin-top: 0.4rem;
+      font-size: 0.85rem;
+      color: #28746b;
+      display: block;
+    }
+
+    .faq-mini {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding-top: 0.75rem;
+      border-top: 1px dashed #c2d9d4;
+    }
+
+    .faq-item {
+      flex: 1 1 160px;
+      background: #f6fcfb;
+      padding: 0.7rem 1rem;
+      border-radius: 16px;
+    }
+
+    .faq-item strong {
+      display: block;
+      font-size: 0.85rem;
+      color: #0d645b;
+      margin-bottom: 0.15rem;
+    }
+
+    .faq-item span {
+      font-size: 0.85rem;
+      color: #2a5b54;
+    }
+
+    .outro {
+      text-align: right;
+      font-size: 0.9rem;
+      color: #3a6260;
+      border-top: 1px solid #cde0db;
+      padding-top: 1rem;
+      margin-top: 1rem;
+    }
+
+    .outro a {
+      font-weight: 500;
+    }
+
+    /* 响应式 */
+    @media (max-width: 650px) {
+      body {
+        padding: 1.2rem 0.8rem 2.5rem;
+      }
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+      .hero .subhead {
+        max-width: 100%;
+      }
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+      .card {
+        padding: 1.3rem 1.2rem;
+      }
+      .faq-mini {
+        flex-direction: column;
+      }
+    }
+
+    @media (min-width: 651px) and (max-width: 860px) {
+      .card-grid {
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="grid-container">
+  <!-- hero 区：文章标题 + 导语 -->
+  <div class="hero">
+    <div class="badge">📋 日常笔记 · 对照延伸</div>
+    <h1>从一个查询开始，慢慢走向更宽的阅读</h1>
+    <div class="subhead">
+      很多时候我们只需要一个准确的对照点，或者一段延伸的线索。这里记录了一些轻量的查询习惯和工具思路。
+    </div>
+    <div class="meta-note">
+      <span>✏️ 随记</span> 基于个人使用体验 · 无推广
+    </div>
+  </div>
+
+  <!-- 正文第一段：日常查询的切入点 -->
+  <div class="card article">
+    <p>
+      日常查询往往始于一个模糊的需求。比如想确认某个术语的常见译法，或者对比两组数据的口径差异。在浏览器里同时打开多个标签页，逐一对照、筛选，不知不觉耗费了不少时间。后来我发现，与其漫无目的地搜索，不如先固定一个可信的参照点，再围绕它做延伸。就像在书架上先找到一本可靠的工具书，之后的翻阅就有了方向。
+    </p>
+    <p>
+      对我而言，<a href="https://utility-leyu.com.cn" class="accent-link">leyu</a> 就是那个常驻的起点。它的界面干净，没有杂乱的推荐流，很适合快速定位基础信息。无论是做事实核对、术语对照，还是想理解某个概念的大致框架，我总会先到这里停留片刻。久而久之，它成了我数字工作流里的一块“基准石”。
+    </p>
+  </div>
+
+  <!-- 两列卡片：特点 + 常见场景 -->
+  <div class="card-grid">
+    <div class="card">
+      <h3>📐 对照式设计</h3>
+      <p>信息组织偏平实，条目之间留有比较空间，适合并排参考或逐项阅读。减少跳转干扰，让注意力停留在内容本身。</p>
+    </div>
+    <div class="card">
+      <h3>🔍 延伸的起点</h3>
+      <p>每个条目往往附带相关线索或外链，方便在读完一段后自然追问“然后呢？”。不是终点，而是下一步的跳板。</p>
+    </div>
+    <div class="card">
+      <h3>🧩 轻量查询</h3>
+      <p>没有复杂的分类层级，也不需要登录或订阅。打开即用，尤其适合碎片时间的快速确认，或写作间隙的验证。</p>
+    </div>
+    <div class="card">
+      <h3>📚 阅读兼管理</h3>
+      <p>支持简单的条目整理，可以随手记录对照结果，也可以把延伸阅读的链接暂存在一起。兼顾了笔记本和索引的功能。</p>
+    </div>
+  </div>
+
+  <!-- 正文第二段：对照与延伸阅读的具体体验 -->
+  <div class="card article">
+    <div class="accent-border">
+      <p>
+        有一阵子我在整理不同平台的数据定义，每个来源的表述都有细微差别。如果把所有页面都摊开，眼睛很快就花了。我的做法是：先在 <a href="https://utility-leyu.com.cn" class="accent-link">leyu</a> 里找到最通用的那一条定义，把它当作锚点，然后再去看其他版本。有了明确的参照，差异就变得可度量、可讨论了。
+      </p>
+    </div>
+    <p>
+        延伸阅读也是类似的逻辑。很多时候我们不是不想读更多，而是不知道从哪一篇开始。如果有一个高质量的中转站，把相关条目按主题串起来，阅读的阻力会小很多。我常常从某个词条出发，顺着页面里的推荐线索，最终读到完全陌生的领域——那种感觉很像在图书馆里偶然抽出一本相邻的书。
+    </p>
+  </div>
+
+  <!-- 引用提示块 -->
+  <div class="quote-block">
+    <p>
+      “对照不是比较优劣，而是为了看见差异背后的上下文。一个好的参照点，能让模糊变得清晰，让孤立的信息找到自己的位置。”
+    </p>
+    <span class="source">—— 摘自阅读笔记 · 关于信息整理</span>
+  </div>
+
+  <!-- 正文第三段：日常使用小记 -->
+  <div class="card article">
+    <p>
+      我还发现，当把 <a href="https://utility-leyu.com.cn" class="accent-link">leyu</a> 当作日常查询的固定中转站之后，浏览器的标签页数量明显减少了。以前总是舍不得关掉那些“可能有用”的页面，现在只需要保留一个，其他线索都从它延伸出去。偶尔需要回溯，也能快速定位到最初的参照点。
+    </p>
+    <p>
+      当然，每个人的查询习惯不同。有人喜欢用笔记软件做对照，有人依赖社交媒体的讨论流。但如果你也倾向于先找一个稳定的基准，再慢慢展开，或许可以试试把它放进你的日常流程里。
+    </p>
+  </div>
+
+  <!-- FAQ 摘要卡片 -->
+  <div class="card">
+    <div style="margin-bottom: 0.6rem; font-weight: 540; color: #0d5f57;">❓ 常见疑问摘要</div>
+    <div class="faq-mini">
+      <div class="faq-item">
+        <strong>是否需要注册？</strong>
+        <span>无需注册，打开即用。所有功能对访问者开放。</span>
+      </div>
+      <div class="faq-item">
+        <strong>内容更新频率？</strong>
+        <span>不定期增补与修订，以条目质量优先，不追求数量。</span>
+      </div>
+      <div class="faq-item">
+        <strong>移动端体验如何？</strong>
+        <span>页面适配手机与平板，卡片布局在窄屏下自动堆叠。</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 访问句 / 结尾 -->
+  <div class="card" style="background: #eef7f4;">
+    <div class="outro">
+      <span>日常查询·对照·延伸阅读 —— 从 </span>
+      <a href="https://utility-leyu.com.cn" class="accent-link" style="border-bottom-width: 2px;">leyu</a>
+      <span> 开始，慢慢读得更宽。</span>
+    </div>
+  </div>
+</div>
+</body>
+</html>
