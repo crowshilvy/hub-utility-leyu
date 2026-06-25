@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雷速 · 信息聚合与场景化工具</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background-color: #f3f5f8;
+            color: #1e2a3a;
+            line-height: 1.65;
+            padding: 2rem 1.5rem;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        /* Hero */
+        .hero {
+            background: white;
+            padding: 3.5rem 2.5rem 2.8rem;
+            border-radius: 28px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.02);
+            border: 1px solid #e5e9f0;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 520;
+            letter-spacing: -0.01em;
+            color: #0b1e2e;
+        }
+
+        .hero h1 span {
+            background: #dfe6ed;
+            padding: 0 0.3rem;
+            font-weight: 420;
+            border-radius: 6px;
+        }
+
+        .hero .sub {
+            margin-top: 0.75rem;
+            font-size: 1.1rem;
+            color: #3f4f62;
+            max-width: 560px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero .tagline {
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            background: #edf1f7;
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            color: #1e3a5f;
+            border: 1px solid #d6dee9;
+        }
+
+        /* 通用卡片 */
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem 2rem 1.8rem;
+            margin-bottom: 1.8rem;
+            border: 1px solid #e1e6ef;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.15s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.03);
+        }
+
+        .card h2 {
+            font-size: 1.35rem;
+            font-weight: 500;
+            color: #1b2a3c;
+            margin-bottom: 1rem;
+            border-left: 4px solid #7b8da3;
+            padding-left: 0.8rem;
+        }
+
+        .card p, .card li {
+            color: #2d3d4f;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.2rem;
+            margin-top: 0.6rem;
+        }
+
+        .feature-item {
+            background: #f8faff;
+            border-radius: 18px;
+            padding: 1.2rem 1rem;
+            border: 1px solid #e5ecf5;
+            transition: background 0.1s;
+        }
+
+        .feature-item strong {
+            display: block;
+            font-weight: 520;
+            color: #0b1e2e;
+            margin-bottom: 0.3rem;
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .inline-link {
+            color: #1c4f7a;
+            text-decoration: none;
+            border-bottom: 1px dotted #a9bbcf;
+            transition: border 0.15s;
+        }
+
+        .inline-link:hover {
+            border-bottom: 2px solid #1c4f7a;
+        }
+
+        .faq-item {
+            margin-bottom: 1.3rem;
+        }
+
+        .faq-item h3 {
+            font-weight: 480;
+            font-size: 1rem;
+            color: #1b2c40;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-item p {
+            font-size: 0.95rem;
+            color: #3e4f62;
+        }
+
+        .bottom-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.8rem;
+            margin-top: 1.8rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #d7dfea;
+        }
+
+        .bottom-links a {
+            color: #234a6b;
+            text-decoration: none;
+            font-size: 0.9rem;
+            border-bottom: 1px solid transparent;
+        }
+
+        .bottom-links a:hover {
+            border-bottom: 1px solid #234a6b;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 2.4rem;
+            color: #6c7d91;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .hero {
+                padding: 2rem 1.5rem;
+            }
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .card {
+                padding: 1.5rem 1.2rem;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- Hero 区 -->
+    <div class="hero">
+        <h1>围绕<span>雷速</span>的信息聚合</h1>
+        <p class="sub">从关键词拆解到场景化查阅 —— 让内容之间的线索自然衔接</p>
+        <div class="tagline">主题导向 · 轻量工具 · 克制表达</div>
+    </div>
+
+    <!-- 优势区 -->
+    <div class="card">
+        <h2>这一版块的设计偏重</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <strong>结构清晰</strong>
+                <p>分区以卡片和细边框区隔，避免视觉拥挤，信息层级一目了然。</p>
+            </div>
+            <div class="feature-item">
+                <strong>低干扰阅读</strong>
+                <p>浅灰色背景 + 柔和阴影，减少强对比带来的视觉疲劳。</p>
+            </div>
+            <div class="feature-item">
+                <strong>承接式段落</strong>
+                <p>各区域之间有收束和过渡，不强行断章。</p>
+            </div>
+        </div>
+        <p style="margin-top: 0.8rem; font-size: 0.95rem;">页面采用落地页式结构：hero 引入主题、优势点明意图、说明区展开细节、FAQ 摘要回应常见疑问，底部保留扩展链接。</p>
+    </div>
+
+    <!-- 说明区：从关键词展开 -->
+    <div class="card">
+        <h2>从“雷速”出发的内容组织</h2>
+        <p><a href="https://china-zh-leisu.com" class="inline-link">雷速</a> 这个关键词本身指向多个可能的主题方向：可以是信号传输中的响应速率，也可以指一种信息聚合的命名方式。本页面不预设唯一解释，而是将其视为一个起点，展示如何围绕一个核心词展开结构化内容。</p>
+        <p style="margin-top: 0.8rem;">在实际应用中，类似的关键词常常需要配合场景说明，比如技术文档、产品功能介绍，或是某个领域的索引页。通过分区卡片呈现，读者可以通过标题快速定位感兴趣段落，而无需线性通读全部内容。</p>
+        <p style="margin-top: 0.8rem;">这种信息组织方式在落地页和轻百科页面中比较常见：把最核心的概念放在 hero，然后用两到三个模块分别支撑不同的信息维度。例如本页的优势区、说明区、FAQ 摘要，各自承担了不同的叙述角色。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="card">
+        <h2>常见疑问 · 摘要</h2>
+        <div class="faq-item">
+            <h3>为什么页面名称叫“雷速”？</h3>
+            <p>这是当前页面的主题关键词。页面内容围绕该词展开，但并未限定为某一具体产品——更偏向于一种命名示例与信息结构演示。</p>
+        </div>
+        <div class="faq-item">
+            <h3>这种落地页适合什么场景？</h3>
+            <p>适合需要展示概念、功能或主题的轻量介绍页。尤其是在信息量不大但希望结构清晰的场景中，卡片式分区能帮助读者快速消化内容。</p>
+        </div>
+        <div class="faq-item">
+            <h3>页面中的链接如何自然融入？</h3>
+            <p>例如上一段中出现的 <a href="https://china-zh-leisu.com" class="inline-link">雷速</a> 直接嵌入句子，不额外使用“进入”“查看”等动词。链接作为名词短语的一部分，保持阅读流畅性。</p>
+        </div>
+    </div>
+
+    <!-- 底部链接区 -->
+    <div class="bottom-links">
+        <a href="https://china-zh-leisu.com">雷速</a>
+        <a href="#">内容索引 (示意)</a>
+        <a href="#">关于结构</a>
+        <a href="#">FAQ 完整版</a>
+    </div>
+
+    <div class="footer-note">
+        本页为结构演示 · 所有内容均基于知识型叙述
+    </div>
+
+</div>
+</body>
+</html>
